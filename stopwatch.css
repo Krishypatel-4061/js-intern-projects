@@ -1,0 +1,265 @@
+:root {
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --success: #10b981;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --ring-bg: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stopwatch-card {
+    background: var(--card-bg);
+    border-radius: 2rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.circle-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.bg-circle {
+    fill: none;
+    stroke: var(--ring-bg);
+    stroke-width: 3;
+}
+
+.progress-circle {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 283; /* 2 * pi * 45 */
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 0.1s linear, stroke 0.3s ease;
+}
+
+.time-display {
+    position: relative;
+    z-index: 10;
+    font-family: 'Fira Code', monospace;
+    font-size: 2.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: baseline;
+    letter-spacing: -1px;
+}
+
+.digits {
+    width: 3.2ch;
+    text-align: center;
+}
+
+.milliseconds {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    width: 4ch;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+
+.control-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.control-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.primary-btn {
+    background: var(--success);
+    color: white;
+    width: 90px;
+    height: 90px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.primary-btn.stop {
+    background: var(--danger);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.secondary-btn {
+    background: var(--ring-bg);
+    color: var(--text-main);
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background: var(--border);
+}
+
+.laps-container {
+    background: var(--card-bg);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.laps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.laps-header h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.clear-laps-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.clear-laps-btn:hover {
+    color: var(--danger);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.laps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.laps-list::-webkit-scrollbar {
+    width: 6px;
+}
+.laps-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.75rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lap-index {
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    width: 60px;
+}
+
+.lap-time {
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.lap-diff {
+    color: var(--primary);
+    font-size: 0.9rem;
+    width: 90px;
+    text-align: right;
+}
+
+.lap-diff.positive { color: var(--danger); }
+.lap-diff.negative { color: var(--success); }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Stopwatch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="app-container">
+        <div class="stopwatch-card">
+            <div class="circle-container">
+                <div class="circle-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" class="bg-circle" />
+                        <circle cx="50" cy="50" r="45" class="progress-circle" id="progress-circle" />
+                    </svg>
+                </div>
+                <div class="time-display" id="time-display">
+                    <span class="digits" id="hrs">00</span>:<span class="digits" id="mins">00</span>:<span class="digits" id="secs">00</span><span class="milliseconds" id="ms">.00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn secondary-btn" id="reset-btn">Reset</button>
+                <button class="control-btn primary-btn" id="start-stop-btn">Start</button>
+                <button class="control-btn secondary-btn" id="lap-btn" disabled>Lap</button>
+            </div>
+        </div>
+
+        <div class="laps-container">
+            <div class="laps-header">
+                <h3>Laps</h3>
+                <button class="clear-laps-btn hidden" id="clear-laps-btn">Clear All</button>
+            </div>
+            <div class="laps-list" id="laps-list">
+                <div class="empty-state">No laps recorded yet</div>
+            </div>
+        </div>
+    </main>
+    <script src="stopwatch.js"></script>
+</body>
+</html>

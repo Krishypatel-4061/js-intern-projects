@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="CRUD.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="app-container">
+        <header class="app-header">
+            <h1>Task Vault</h1>
+            <p>Organize your work, effortlessly.</p>
+        </header>
+
+        <section class="add-task-section">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off">
+                <button id="add-btn" class="primary-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+            </div>
+        </section>
+
+        <section class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </section>
+
+        <section class="task-list-section">
+            <ul id="taskList" class="task-list">
+                <!-- Tasks injected here -->
+            </ul>
+        </section>
+        
+        <footer class="app-footer">
+            <span id="task-count">0 tasks left</span>
+            <button id="clear-completed" class="text-btn hidden">Clear completed</button>
+        </footer>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Edit Task</h3>
+            <input type="text" id="edit-input">
+            <div class="modal-actions">
+                <button id="cancel-edit" class="secondary-btn">Cancel</button>
+                <button id="save-edit" class="primary-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="CRUD.js"></script>
+</body>
+</html>

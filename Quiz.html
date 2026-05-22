@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="app-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="logo-icon">🧠</div>
+            <h1>Knowledge Master</h1>
+            <p>Test your knowledge with 10 hand-crafted questions.</p>
+            <button id="start-btn" class="primary-btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <header class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="quiz-stats">
+                    <span id="question-counter">Question 1/10</span>
+                    <div class="timers">
+                        <span id="question-timer" class="timer">⏳ 00:00</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="question-container">
+                <h2 id="question-text">Question text goes here?</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Options injected here -->
+                </div>
+            </div>
+
+            <footer class="quiz-footer">
+                <button id="next-btn" class="primary-btn hidden">Next Question</button>
+            </footer>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="result-header">
+                <h1 id="grade-title">Grade: A+</h1>
+                <p id="feedback-text">Outstanding performance!</p>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">10/10</span>
+                        <span id="final-percentage">100%</span>
+                    </div>
+                </div>
+                <p class="total-time">Total Time: <span id="total-time">00:00</span></p>
+            </div>
+
+            <div class="review-section">
+                <h2>Detailed Review</h2>
+                <div id="review-container" class="review-list">
+                    <!-- Review items injected here -->
+                </div>
+            </div>
+
+            <button id="restart-btn" class="primary-btn">Take Quiz Again</button>
+        </div>
+    </main>
+
+    <script src="Quiz.js"></script>
+</body>
+</html>

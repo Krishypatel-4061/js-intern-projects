@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search App</title>
+    <link rel="stylesheet" href="image.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Discover Images</h1>
+        <p>Find beautiful high-resolution photos</p>
+        <div class="search-bar">
+            <input type="text" id="text" placeholder="Search for anything (e.g. nature, technology)">
+            <button id="btn" aria-label="Search">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="gallery-section">
+        <div id="error-message" class="error-message hidden"></div>
+        
+        <div id="image-container" class="image-grid">
+            <!-- Images injected dynamically -->
+        </div>
+
+        <div id="loader" class="loader hidden"></div>
+
+        <div class="load-more-container">
+            <button id="load-more" class="load-more-btn hidden">Load More</button>
+        </div>
+    </main>
+
+    <script src="image.js"></script>
+</body>
+</html>
