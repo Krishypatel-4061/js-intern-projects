@@ -1,0 +1,30 @@
+==================================================
+Assignment 1 — Task List CRUD Application
+==================================================
+
+Objective:
+Build a Task Management application where users can manage daily tasks.
+
+Task Object Structure:
+- id
+- title
+- description
+- status (Pending / Completed)
+- priority (Low / Medium / High)
+- createdAt
+
+Functional Requirements:
+1. Create Task
+2. Read Tasks
+3. Update Task
+4. Delete Task
+5. Mark Complete
+6. Search & Filter
+7. Sorting
+8. Local Storage Integration
+
+Desired Output:
+- Total Tasks
+- Completed Tasks
+- Pending Tasks
+- Task listing UI
